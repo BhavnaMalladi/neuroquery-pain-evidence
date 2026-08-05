@@ -1,0 +1,9 @@
+{
+  "analysis": "D year trend",
+  "n_studies_with_year": 484,
+  "year_min": 2004,
+  "year_max": 2017,
+  "wls_slope_per_year": -0.44102535591254,
+  "wls_slope_p": 0.05377148908491462,
+  "era_cutoff": 2016
+}

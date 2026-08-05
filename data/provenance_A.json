@@ -1,0 +1,172 @@
+{
+  "analysis": "A reporting audit",
+  "primary_threshold": 0.08548980951309204,
+  "target_fraction": 0.036,
+  "n_pain_studies": 484,
+  "radii_mm": [
+    6,
+    8,
+    10,
+    12
+  ],
+  "roi_core": {
+    "dACC": [
+      0,
+      24,
+      28,
+      "cortical"
+    ],
+    "aInsula_L": [
+      -38,
+      6,
+      2,
+      "cortical"
+    ],
+    "aInsula_R": [
+      38,
+      6,
+      2,
+      "cortical"
+    ],
+    "S1": [
+      -40,
+      -30,
+      55,
+      "cortical"
+    ],
+    "S2": [
+      -50,
+      -22,
+      18,
+      "cortical"
+    ],
+    "Thalamus": [
+      0,
+      -16,
+      6,
+      "subcortical"
+    ],
+    "PAG": [
+      0,
+      -29,
+      -12,
+      "subcortical"
+    ],
+    "Parabrachial": [
+      6,
+      -37,
+      -26,
+      "subcortical"
+    ],
+    "Hypothalamus": [
+      0,
+      -4,
+      -12,
+      "subcortical"
+    ],
+    "Amygdala": [
+      -24,
+      -4,
+      -18,
+      "subcortical"
+    ]
+  },
+  "roi_extended": {
+    "dACC": [
+      0,
+      24,
+      28,
+      "cortical"
+    ],
+    "aInsula_L": [
+      -38,
+      6,
+      2,
+      "cortical"
+    ],
+    "aInsula_R": [
+      38,
+      6,
+      2,
+      "cortical"
+    ],
+    "S1": [
+      -40,
+      -30,
+      55,
+      "cortical"
+    ],
+    "S2": [
+      -50,
+      -22,
+      18,
+      "cortical"
+    ],
+    "Thalamus": [
+      0,
+      -16,
+      6,
+      "subcortical"
+    ],
+    "PAG": [
+      0,
+      -29,
+      -12,
+      "subcortical"
+    ],
+    "Parabrachial": [
+      6,
+      -37,
+      -26,
+      "subcortical"
+    ],
+    "Hypothalamus": [
+      0,
+      -4,
+      -12,
+      "subcortical"
+    ],
+    "Amygdala": [
+      -24,
+      -4,
+      -18,
+      "subcortical"
+    ],
+    "pInsula_L": [
+      -38,
+      -18,
+      10,
+      "cortical"
+    ],
+    "pInsula_R": [
+      38,
+      -18,
+      10,
+      "cortical"
+    ],
+    "aMCC": [
+      0,
+      20,
+      34,
+      "cortical"
+    ],
+    "RVM": [
+      0,
+      -34,
+      -48,
+      "subcortical"
+    ],
+    "NAc_L": [
+      -10,
+      12,
+      -6,
+      "subcortical"
+    ],
+    "NAc_R": [
+      10,
+      12,
+      -6,
+      "subcortical"
+    ]
+  }
+}

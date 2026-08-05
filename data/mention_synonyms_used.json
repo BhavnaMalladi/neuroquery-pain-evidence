@@ -1,0 +1,79 @@
+{
+  "ACC": [
+    "anterior cingulate",
+    "anterior cingulate cortex",
+    "anterior cingulate gyrus",
+    "anterior cingulate area",
+    "caudal anterior cingulate cortex",
+    "cingulate anterior"
+  ],
+  "anterior insula": [
+    "anterior insula",
+    "anterior insular",
+    "agranular insular cortex",
+    "insula anterior"
+  ],
+  "S1": [
+    "primary somatosensory",
+    "primary somatosensory cortex",
+    "primary somatosensory area",
+    "postcentral gyrus",
+    "postcentral"
+  ],
+  "S2": [
+    "secondary somatosensory",
+    "secondary somatosensory cortex",
+    "secondary somatosensory area",
+    "parietal operculum"
+  ],
+  "posterior insula": [
+    "posterior insula",
+    "posterior insular cortex"
+  ],
+  "aMCC": [
+    "midcingulate",
+    "midcingulate cortex",
+    "anterior midcingulate cortex"
+  ],
+  "Thalamus": [
+    "thalamus",
+    "thalamic",
+    "dorsal thalamus"
+  ],
+  "PAG": [
+    "periaqueductal",
+    "periaqueductal gray",
+    "periaqueductal gray matter",
+    "periaqueductal grey",
+    "central gray"
+  ],
+  "Parabrachial": [
+    "parabrachial",
+    "parabrachial nucleus",
+    "lateral parabrachial nucleus"
+  ],
+  "Hypothalamus": [
+    "hypothalamus",
+    "hypothalamic",
+    "lateral hypothalamus",
+    "lateral hypothalamic area",
+    "medial hypothalamus",
+    "anterior hypothalamus"
+  ],
+  "Amygdala": [
+    "amygdala",
+    "amygdalar",
+    "amygdaloid",
+    "amygdala central",
+    "amygdala basolateral"
+  ],
+  "RVM": [
+    "nucleus raphe magnus"
+  ],
+  "NAc": [
+    "nucleus accumbens",
+    "accumbens",
+    "ventral striatum",
+    "striatum ventral"
+  ]
+}
