@@ -1,0 +1,13 @@
+# raw downloads and model files (large, refetched on demand)
+nq_cache/
+*.tsv.gz
+*.npz
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# os
+.DS_Store
