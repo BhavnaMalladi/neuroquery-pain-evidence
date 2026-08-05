@@ -61,6 +61,4 @@ Raw data: NeuroQuery data repository, https://github.com/neuroquery/neuroquery_d
 Dataset and methods: Dockes J, Poldrack RA, Primet R, et al. NeuroQuery, comprehensive
 meta-analysis of human brain mapping. eLife 2020;9:e53385.
 
-## License
 
-Code under MIT. Add a LICENSE file before sharing.
