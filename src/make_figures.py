@@ -47,13 +47,8 @@ def main():
     if e and e.get("ratio"):
         bars.append(("co-occurrence\nwith pain", e["ratio"]))
 
-    zpath = os.path.join(DATA, "roi_zvalues.csv")
-    if os.path.exists(zpath):
-        z = pd.read_csv(zpath)
-        cort = z[z.kind == "cortical"].z.mean()
-        sub = z[z.kind == "subcortical"].z.mean()
-        if sub not in (0, np.nan) and sub > 0:
-            bars.append(("encoding z\n(pain query)", cort / sub))
+    # Idea B uses a signed encoding statistic, so it is shown as its own per-region
+    # figure (roi_zvalues.png) rather than as a ratio of means here.
 
     if not bars:
         print("no result files yet; run the analyses first")

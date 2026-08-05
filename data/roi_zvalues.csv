@@ -1,0 +1,17 @@
+roi,kind,z
+aInsula_R,cortical,9.01214492399092
+pInsula_R,cortical,5.28194992637784
+S2,cortical,3.2854413358278274
+pInsula_L,cortical,3.0222425316061865
+aInsula_L,cortical,2.6808023273762154
+aMCC,cortical,1.5596392601621019
+dACC,cortical,1.2648377720168125
+S1,cortical,-0.49666471760230735
+RVM,subcortical,5.738040819719703
+PAG,subcortical,4.7412232006612705
+Thalamus,subcortical,2.4020095245605733
+Parabrachial,subcortical,1.8900716130285697
+Hypothalamus,subcortical,1.4913485332815495
+Amygdala,subcortical,-0.46002099108124406
+NAc_L,subcortical,-1.0690881774963734
+NAc_R,subcortical,-1.9808120005078669

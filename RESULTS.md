@@ -43,10 +43,31 @@ of other meta-analytic databases, this is a third, separately built dataset show
 imbalance, which points to an upstream property of the literature rather than any one tool's
 extraction code.
 
-## B. Region sampling of the predictive map — pending
+## B. Region sampling of the predictive map — RECOVERS the subcortical signal
 
-Not yet run; requires the neuroquery encoding model and nilearn, which are still installing. To be
-reported as its own predictive-encoding estimate at the same coordinates.
+The one analysis that reads NeuroQuery's trained encoding model, for the single query "pain",
+sampled at the region coordinates (rescaled prediction z, map key z_map). Unlike the raw coordinate
+count in Idea A, the encoding map ranks the descending pain modulation nuclei near the top:
+
+| Region | Encoding z | | Region | Encoding z |
+|---|---|---|---|---|
+| aInsula_R | 9.01 | | Thalamus | 2.40 |
+| RVM | 5.74 | | Parabrachial | 1.89 |
+| pInsula_R | 5.28 | | aMCC | 1.56 |
+| PAG | 4.74 | | Hypothalamus | 1.49 |
+| S2 | 3.29 | | dACC | 1.26 |
+| pInsula_L | 3.02 | | Amygdala | -0.46 |
+| aInsula_L | 2.68 | | S1 | -0.50 |
+
+Rostral ventromedial medulla and periaqueductal gray reach encoding values above the cingulate
+(dACC, aMCC), and thalamus matches anterior insula, while primary somatosensory cortex is not pain
+specific (negative), consistent with the reporting audit. So the same tool that under-reports these
+structures in its raw coordinates surfaces them in its text-trained map. This localizes the gap to
+coordinate reporting rather than to the association present in the text, the same conclusion Idea C
+reaches from a different direction. Read as association, not localization: the encoding z is a
+rescaled predictive statistic, and high values at small deep nuclei (RVM in particular) warrant
+caution. Because the value is a signed prediction rather than a rate, it is shown as its own
+per-region figure and kept out of the cross-measure ratio bar.
 
 ## C. Mention frequency versus reporting frequency — SHARPENS the account
 
