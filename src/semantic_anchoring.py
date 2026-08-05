@@ -44,6 +44,50 @@ def cosine_to(term_idx, binary, norms):
     return dots / (norms * norms[term_idx])
 
 
+def term_figure(terms, res, cort, sub, path):
+    region_mean = res.set_index("region")["anchoring_mean"].to_dict()
+    t = terms.copy()
+    t["rmean"] = t.region.map(region_mean)
+    t["kind_order"] = (t.kind == "subcortical").astype(int)
+    t = t.sort_values(["kind_order", "rmean", "cosine_to_pain"], ascending=[True, False, False])
+    labels = ["%s  |  %s" % (r, term) for r, term in zip(t.region, t.term)]
+    y = np.arange(len(t))
+    colors = [CORTICAL if k == "cortical" else SUBCORT for k in t.kind]
+    fig, ax = plt.subplots(figsize=(9, max(6, 0.27 * len(t))))
+    ax.barh(y, t.cosine_to_pain, color=colors, edgecolor="k", linewidth=0.3)
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels, fontsize=8)
+    ax.invert_yaxis()
+    ax.axvline(cort, color=CORTICAL, ls="--", lw=1, label="cortical region mean")
+    ax.axvline(sub, color=SUBCORT, ls=":", lw=1, label="subcortical region mean")
+    ax.set_xlabel("co-occurrence with 'pain' across the corpus (cosine)")
+    ax.set_title("Co-occurrence of 'pain' with each region term\n"
+                 "cortical terms (red) versus subcortical terms (blue)")
+    ax.legend(fontsize=8, loc="lower right")
+    fig.tight_layout()
+    fig.savefig(path, dpi=200)
+    plt.close(fig)
+
+
+def nearest_figure(near, path, top=15):
+    items = near[:top]
+    names = [t for t, _ in items]
+    vals = [v for _, v in items]
+    y = np.arange(len(items))
+    colors = ["#2166ac" if "insul" in n else "#6a6a6a" for n in names]
+    fig, ax = plt.subplots(figsize=(7, 5.5))
+    ax.barh(y, vals, color=colors, edgecolor="k", linewidth=0.3)
+    ax.set_yticks(y)
+    ax.set_yticklabels(names, fontsize=9)
+    ax.invert_yaxis()
+    ax.set_xlabel("co-occurrence with 'pain' (cosine)")
+    ax.set_title("Validation: terms that most co-occur with 'pain'\n"
+                 "(insula, the nearest brain region, highlighted)")
+    fig.tight_layout()
+    fig.savefig(path, dpi=200)
+    plt.close(fig)
+
+
 def main():
     vocab, idx, counts = load_counts()
     binary, norms = occurrence_matrix(counts)
@@ -60,23 +104,32 @@ def main():
         print("  %.3f  %s" % (s, t))
 
     rows = []
+    term_rows = []
     for region, (kind, roi_names, syns) in REGIONS.items():
         present = [s for s in syns if s in idx]
         if not present:
             continue
         vals = [sims[idx[s]] for s in present]
+        for s in present:
+            term_rows.append({"region": region, "term": s, "kind": kind,
+                              "cosine_to_pain": float(sims[idx[s]])})
         rows.append({"region": region, "kind": kind,
                      "anchoring_mean": float(np.mean(vals)),
                      "anchoring_max": float(np.max(vals)),
                      "n_terms": len(present)})
     res = pd.DataFrame(rows).sort_values(["kind", "anchoring_mean"], ascending=[True, False])
     res.to_csv(os.path.join(DATA, "semantic_anchoring.csv"), index=False)
+    terms = pd.DataFrame(term_rows)
+    terms.to_csv(os.path.join(DATA, "semantic_anchoring_terms.csv"), index=False)
     print("\n", res.to_string(index=False))
 
     cort = res[res.kind == "cortical"].anchoring_mean.mean()
     sub = res[res.kind == "subcortical"].anchoring_mean.mean()
     print("\nmean pain anchoring: cortical %.4f, subcortical %.4f, ratio %.2f"
           % (cort, sub, cort / sub if sub else np.nan))
+
+    term_figure(terms, res, cort, sub, os.path.join(FIG, "semantic_anchoring_terms.png"))
+    nearest_figure(near, os.path.join(FIG, "pain_nearest_terms.png"))
 
     order2 = res.sort_values("anchoring_mean")
     y = np.arange(len(order2))

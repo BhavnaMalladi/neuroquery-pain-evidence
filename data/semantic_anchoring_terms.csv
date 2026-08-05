@@ -1,0 +1,52 @@
+region,term,kind,cosine_to_pain
+ACC,anterior cingulate,cortical,0.1781141459941864
+ACC,anterior cingulate cortex,cortical,0.29662930965423584
+ACC,anterior cingulate gyrus,cortical,0.06975789368152618
+ACC,anterior cingulate area,cortical,0.014381916262209415
+ACC,caudal anterior cingulate cortex,cortical,0.02876383252441883
+ACC,cingulate anterior,cortical,0.047563713043928146
+anterior insula,anterior insula,cortical,0.3382415175437927
+anterior insula,anterior insular,cortical,0.18682004511356354
+anterior insula,agranular insular cortex,cortical,0.025367313995957375
+anterior insula,insula anterior,cortical,0.1848953664302826
+S1,primary somatosensory,cortical,0.12170486897230148
+S1,primary somatosensory cortex,cortical,0.26452338695526123
+S1,primary somatosensory area,cortical,0.05984330177307129
+S1,postcentral gyrus,cortical,0.17762255668640137
+S1,postcentral,cortical,0.08874808251857758
+S2,secondary somatosensory,cortical,0.11636790633201599
+S2,secondary somatosensory cortex,cortical,0.2827645540237427
+S2,secondary somatosensory area,cortical,0.07927285879850388
+S2,parietal operculum,cortical,0.131994366645813
+posterior insula,posterior insula,cortical,0.2782318592071533
+posterior insula,posterior insular cortex,cortical,0.09654825180768967
+aMCC,midcingulate,cortical,0.10706844925880432
+aMCC,midcingulate cortex,cortical,0.16048473119735718
+aMCC,anterior midcingulate cortex,cortical,0.13086794316768646
+Thalamus,thalamus,subcortical,0.2945038378238678
+Thalamus,thalamic,subcortical,0.16504503786563873
+Thalamus,dorsal thalamus,subcortical,0.03897542133927345
+PAG,periaqueductal,subcortical,0.043937478214502335
+PAG,periaqueductal gray,subcortical,0.28047505021095276
+PAG,periaqueductal gray matter,subcortical,0.0972413718700409
+PAG,periaqueductal grey,subcortical,0.1589980572462082
+PAG,central gray,subcortical,0.009587944485247135
+Parabrachial,parabrachial,subcortical,0.07941225171089172
+Parabrachial,parabrachial nucleus,subcortical,0.10287804901599884
+Parabrachial,lateral parabrachial nucleus,subcortical,0.025367313995957375
+Hypothalamus,hypothalamus,subcortical,0.20846259593963623
+Hypothalamus,hypothalamic,subcortical,0.11844290047883987
+Hypothalamus,lateral hypothalamus,subcortical,0.04255327209830284
+Hypothalamus,lateral hypothalamic area,subcortical,0.038050971925258636
+Hypothalamus,medial hypothalamus,subcortical,0.025367313995957375
+Hypothalamus,anterior hypothalamus,subcortical,0.023916535079479218
+Amygdala,amygdala,subcortical,0.3144627511501312
+Amygdala,amygdalar,subcortical,0.08070432394742966
+Amygdala,amygdaloid,subcortical,0.03970612585544586
+Amygdala,amygdala central,subcortical,0.03695981577038765
+Amygdala,amygdala basolateral,subcortical,0.020712323486804962
+RVM,nucleus raphe magnus,subcortical,0.08055204153060913
+NAc,nucleus accumbens,subcortical,0.14629054069519043
+NAc,accumbens,subcortical,0.05768885090947151
+NAc,ventral striatum,subcortical,0.16055084764957428
+NAc,striatum ventral,subcortical,0.030252287164330482

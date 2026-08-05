@@ -143,16 +143,26 @@ reporting step that loses it." *(Caveat to say aloud: this value is a prediction
 a localization claim, and RVM being highest deserves a little caution.)*
 
 ### Slide 8. Idea E, the vocabulary is only mildly cortical
-**Figure:** `semantic_anchoring.png`
+**Figures:** `pain_nearest_terms.png` (validation, the clean one to show), `semantic_anchoring.png`
+(region level, 1.49). Optional detail or appendix: `semantic_anchoring_terms.png` (every synonym
+term), backed by `semantic_anchoring_terms.csv`.
 **On slide:**
 - With no model at all: how often does "pain" co-occur with each region's term across the corpus.
-- Cortical a little higher than subcortical (1.49).
 - Validation: nearest terms to "pain" are painful, nociceptive, noxious, chronic pain; nearest
   anatomy is insula.
-**Say:** "The mildest measure, and pure co-occurrence, no model. How often does the word pain show up
-in the same paper as each region. As a sanity check, the words closest to pain are exactly what they
-should be, and the closest brain region is the insula. Cortical regions co-occur with pain a bit more
-than subcortical ones, but only a bit, a ratio of about 1.5. Hold that number for the next slide."
+- Cortical a little higher than subcortical (1.49).
+**How I made it:** "For every term, I counted how often it appears in the same paper as the word pain
+across the whole corpus, as a cosine of their occurrence patterns. No model, just co-occurrence. The
+validation figure is that same measure applied to all words, ranked."
+**Say:** "The mildest measure, and pure co-occurrence, no model. As a sanity check, the words closest
+to pain are exactly what they should be, painful, nociceptive, noxious, chronic pain, and the closest
+brain region is the insula, highlighted. Cortical regions co-occur with pain a bit more than
+subcortical ones, but only a bit, a ratio of about 1.5. Hold that number for the next slide."
+**If you show the per-term figure (optional):** "If I break it down to every naming variant, the
+interesting thing is that the top subcortical terms, thalamus, amygdala, periaqueductal gray, co-occur
+with pain just as strongly as the top cortical terms. The region-level gap comes from the subcortical
+regions also carrying more rarely used variants that pull their averages down. So even in the raw
+vocabulary the deep structures are far from absent."
 
 ### Slide 9. Idea D, is it improving over time
 **Figure:** `year_trend.png`
@@ -265,7 +275,9 @@ extending the year analysis past 2017 into the high-field era.
   counting text mentions and comparing to reporting.
 - `roi_zvalues.png` (B): NeuroQuery's encoding value for "pain" at each region. Made from the trained
   map. Shows RVM and PAG high.
-- `semantic_anchoring.png` (E): co-occurrence of each region term with "pain". Pure counting.
+- `semantic_anchoring.png` (E): region-level co-occurrence of each region with "pain". Pure counting.
+- `pain_nearest_terms.png` (E validation): the words that most co-occur with "pain", insula highlighted.
+- `semantic_anchoring_terms.png` (E detail): every synonym term, grouped by region, colored by class.
 - `year_trend.png` (D): reporting ratio by publication year with a weighted trend line.
 - `convergence_summary.png` (synthesis): the four measures as a gradient, discussion on the left,
   coordinate reporting on the right.

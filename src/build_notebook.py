@@ -58,7 +58,9 @@ def main():
         md("## E. Semantic anchoring\n\n"
            "How strongly 'pain' co-occurs with cortical versus subcortical region terms across the "
            "corpus, computed from raw counts with no model involved."),
-        code("show('semantic_anchoring.csv', 'semantic_anchoring.png')\nshow('pain_nearest_terms.csv')"),
+        code("show('semantic_anchoring.csv', 'semantic_anchoring.png')\n"
+             "show(png='pain_nearest_terms.png')\n"
+             "show('semantic_anchoring_terms.csv', 'semantic_anchoring_terms.png')"),
         md("## Summary across measures"),
         code("show(png='convergence_summary.png')"),
     ]
