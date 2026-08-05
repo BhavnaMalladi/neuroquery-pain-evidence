@@ -29,26 +29,26 @@ def load_json(name):
 
 
 def main():
+    # Ordered as a gradient: how the field talks about regions on the left, how it
+    # reports their coordinates on the right. Idea B uses a signed encoding statistic,
+    # so it is shown as its own per-region figure rather than as a ratio here.
     bars = []
+
+    e = load_json("provenance_E.json")
+    if e and e.get("ratio"):
+        bars.append(("co-occurrence\nwith 'pain'", e["ratio"]))
+
+    c = load_json("provenance_C.json")
+    if c:
+        bars.append(("mentioned\nin text", c["mention_ratio"]))
+        bars.append(("coordinate reported\n(region groups)", c["reporting_ratio"]))
 
     ratio_tab = os.path.join(DATA, "ratio_by_radius.csv")
     if os.path.exists(ratio_tab):
         df = pd.read_csv(ratio_tab)
         r6 = df[(df.roi_set == "core10") & (df.R_mm == 6)]
         if len(r6):
-            bars.append(("reporting rate\n(R = 6 mm)", float(r6.ratio.iloc[0])))
-
-    c = load_json("provenance_C.json")
-    if c:
-        bars.append(("mention rate", c["mention_ratio"]))
-        bars.append(("reporting rate\n(region groups)", c["reporting_ratio"]))
-
-    e = load_json("provenance_E.json")
-    if e and e.get("ratio"):
-        bars.append(("co-occurrence\nwith pain", e["ratio"]))
-
-    # Idea B uses a signed encoding statistic, so it is shown as its own per-region
-    # figure (roi_zvalues.png) rather than as a ratio of means here.
+            bars.append(("coordinate reported\n(core 10, 6 mm)", float(r6.ratio.iloc[0])))
 
     if not bars:
         print("no result files yet; run the analyses first")
@@ -57,16 +57,20 @@ def main():
     labels = [b[0] for b in bars]
     vals = [b[1] for b in bars]
     x = np.arange(len(bars))
-    fig, ax = plt.subplots(figsize=(1.6 * len(bars) + 2, 4.6))
-    ax.bar(x, vals, color="#4d4d4d", edgecolor="k", linewidth=0.4, width=0.6)
+    shades = plt.cm.Greys(np.linspace(0.40, 0.85, len(bars)))
+    fig, ax = plt.subplots(figsize=(1.7 * len(bars) + 2, 4.8))
+    ax.bar(x, vals, color=shades, edgecolor="k", linewidth=0.4, width=0.62)
     ax.axhline(1.0, color="#b2182b", lw=1, ls="--", label="equal (no imbalance)")
     for xi, v in zip(x, vals):
-        ax.annotate("%.2f" % v, (xi, v), textcoords="offset points", xytext=(0, 4), ha="center")
+        ax.annotate("%.2f" % v, (xi, v), textcoords="offset points", xytext=(0, 4),
+                    ha="center", fontsize=11)
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontsize=9)
     ax.set_ylabel("cortical over subcortical")
-    ax.set_title("Cortical over subcortical across independent measures")
-    ax.legend(fontsize=8)
+    ax.set_title("The imbalance grows from how pain is discussed to how it is reported")
+    ax.set_xlabel("how the field talks about regions  (left)  to  how it reports their coordinates  (right)",
+                  fontsize=8.5, color="#555555")
+    ax.legend(fontsize=8, loc="upper left")
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "convergence_summary.png"), dpi=200)
     plt.close(fig)

@@ -36,7 +36,8 @@ for d in (DATA, FIG):
 
 RADII = [6, 8, 10, 12]
 TARGET_FRACTION = 0.036   # pain study fraction to match when picking the primary threshold
-SWEEP = [0.0005, 0.001, 0.002, 0.003, 0.005]
+# fractions that bracket the primary selection, so the sweep shows stability around it
+SWEEP_FRACTIONS = [0.02, 0.03, 0.036, 0.05, 0.07]
 CORTICAL = "#b2182b"
 SUBCORT = "#2166ac"
 
@@ -192,18 +193,20 @@ def main():
     print(core_sum.to_string(index=False))
 
     sweep_rows = []
-    for t in SWEEP:
+    for frac in SWEEP_FRACTIONS:
+        t = threshold_for_fraction(pain, frac)
         ids = select_pmids(meta, pain, t)
         sp = coords_by_study(coords, ids)
         a = audit(rois.core(), sp, [6])
         cort = a[a.kind == "cortical"].rate.mean()
         sub = a[a.kind == "subcortical"].rate.mean()
-        sweep_rows.append({"threshold": t, "n_studies": len(sp),
-                           "cortical_mean": cort, "subcortical_mean": sub,
+        sweep_rows.append({"target_fraction": frac, "threshold": round(t, 5),
+                           "n_studies": len(sp), "cortical_mean": cort,
+                           "subcortical_mean": sub, "is_primary": frac == TARGET_FRACTION,
                            "ratio": cort / sub if sub else np.nan})
     sweep = pd.DataFrame(sweep_rows)
     sweep.to_csv(os.path.join(DATA, "threshold_sweep.csv"), index=False)
-    print("\nthreshold sweep (core 10, R=6):")
+    print("\nthreshold sweep bracketing the primary selection (core 10, R=6):")
     print(sweep.to_string(index=False))
 
     forest_figure(core_audit, os.path.join(FIG, "reporting_forest.png"),

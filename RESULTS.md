@@ -34,7 +34,9 @@ and brainstem nuclei, and the separation is significant and stable across radii:
 | 10 mm | 0.190 | 0.119 | 1.61 | 0.028 |
 | 12 mm | 0.270 | 0.172 | 1.57 | 0.058 |
 
-The threshold sweep keeps the ratio above one throughout, rising with pain specificity. The result
+A sweep of selection thresholds bracketing the primary keeps the ratio near two across the pain
+specific range (2.06 at 2% of the corpus, 2.03 at 3%, 2.05 at the primary 3.6%), easing to 1.7 only
+when the selection is loosened to 7%, so the result does not hinge on the threshold. The result
 is selective: primary somatosensory cortex, a large and easily imaged region, is reported as rarely
 as the subcortical nuclei and sits well below the other cortical nodes. A detectability-only account
 predicts the opposite, so the pattern tracks what the literature emphasizes rather than only what is
